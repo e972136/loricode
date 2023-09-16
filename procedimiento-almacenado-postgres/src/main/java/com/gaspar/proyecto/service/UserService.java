@@ -16,4 +16,6 @@ public interface UserService {
     User update(String id, UserDto userDto);
 
     List<User> findAllByQueryProcedure();
+
+    User saveUserByQueryProcedure(UserDto userDto);
 }

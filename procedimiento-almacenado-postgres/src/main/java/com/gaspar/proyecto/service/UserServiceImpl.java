@@ -8,6 +8,7 @@ import com.gaspar.proyecto.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -56,5 +57,12 @@ public class UserServiceImpl implements UserService{
     @Override
     public List<User> findAllByQueryProcedure() {
         return userRepository.findAllByQueryProcedure();
+    }
+
+    @Override
+    public User saveUserByQueryProcedure(UserDto userDto) {
+        String id = UUID.randomUUID().toString();
+        id = userRepository.saveUserByQueryProcedure(userDto.getFullName(),userDto.getEmail(),id);
+        return getById(id);
     }
 }

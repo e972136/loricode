@@ -26,6 +26,13 @@ public class UserController {
         return ResponseEntity.ok(service.save(userDto));
     }
 
+    @PostMapping("/saveProocedure")
+    public ResponseEntity<User> saveUserByQueryProcedure(
+            @RequestBody UserDto userDto
+            ){
+        return ResponseEntity.ok(service.saveUserByQueryProcedure(userDto));
+    }
+
     @PutMapping("/update/{id}")
     public ResponseEntity<User> update(
             @PathVariable String id,

@@ -8,4 +8,11 @@ import java.util.List;
 public interface UserRepository  extends JpaRepository<User,String> {
     @Query(value = "select * FROM sp_get_users()",nativeQuery = true)
     List<User> findAllByQueryProcedure();
+
+    @Query(value = "CALL public.sp_save_user(:nombre,:correo,:rid)",nativeQuery = true)
+    String saveUserByQueryProcedure(
+            String nombre,
+            String correo,
+            String rid
+    );
 }
