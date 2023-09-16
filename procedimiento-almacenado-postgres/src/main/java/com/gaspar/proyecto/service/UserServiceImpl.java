@@ -52,4 +52,9 @@ public class UserServiceImpl implements UserService{
         user.setId(id);
         return userRepository.save(user);
     }
+
+    @Override
+    public List<User> findAllByQueryProcedure() {
+        return userRepository.findAllByQueryProcedure();
+    }
 }

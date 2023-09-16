@@ -39,6 +39,11 @@ public class UserController {
         return ResponseEntity.ok(service.getAll());
     }
 
+    @GetMapping("/listProcedure")
+    public ResponseEntity<List<User>> findAllByQueryProcedure(){
+        return ResponseEntity.ok(service.findAllByQueryProcedure());
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<User> getById(
             @PathVariable String id

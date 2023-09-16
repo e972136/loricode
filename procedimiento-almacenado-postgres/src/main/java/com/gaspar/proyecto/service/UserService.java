@@ -14,4 +14,6 @@ public interface UserService {
     User getById(String id);
 
     User update(String id, UserDto userDto);
+
+    List<User> findAllByQueryProcedure();
 }
